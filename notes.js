@@ -37,7 +37,13 @@ const getNote = (title) => {
 };
 
 const removeNote = (title) => {
-  console.log(`Remove note with title: ${title}`);
+  const notes = fetchNotes();
+  const removedNote = notes.find(note => note.title === title);
+  const filteredNotes = notes.filter(note => note.title !== title);
+
+  saveNotes(filteredNotes);
+
+  return removedNote;
 };
 
 module.exports = {
