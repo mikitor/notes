@@ -16,7 +16,15 @@ if (command === 'add') {
     console.log('There is a note with that title!');
   }
 } else if (command === 'list') {
-  notes.getAll();
+  const noteList = notes.getAll();
+  if (noteList) {
+    console.log('Notes successfully read!');
+    noteList.forEach((note) => {
+      notes.logNote(note);
+    });
+  } else {
+    console.log('Notes not found!');
+  }
 } else if (command === 'read') {
   const note = notes.getNote(argv.title);
   if (note) {

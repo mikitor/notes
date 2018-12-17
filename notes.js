@@ -29,7 +29,7 @@ const addNote = (title, body) => {
 };
 
 const getAll = () => {
-  console.log('Listing notes');
+  return fetchNotes();
 };
 
 const getNote = (title) => {
