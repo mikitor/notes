@@ -10,18 +10,26 @@ console.log('Yargs: ', argv);
 if (command === 'add') {
   const note = notes.addNote(argv.title, argv.body);
   if (note) {
-    console.log(`Note successfully created! ${note.title}: ${note.body}`);
+    console.log('Note successfully created!');
+    notes.logNote(note);
   } else {
     console.log('There is a note with that title!');
   }
 } else if (command === 'list') {
   notes.getAll();
 } else if (command === 'read') {
-  notes.getNote(argv.title);
+  const note = notes.getNote(argv.title);
+  if (note) {
+    console.log('Note successfully read!');
+    notes.logNote(note);
+  } else {
+    console.log('Note not found!');
+  }
 } else if (command === 'remove' && argv.title) {
   const removed = notes.removeNote(argv.title);
   if (removed) {
-    console.log(`Note successfully removed! ${removed.title}: ${removed.body}`);
+    console.log('Note successfully removed!');
+    notes.logNote(removed);
   } else {
     console.log('Note not found!');
   }
