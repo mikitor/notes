@@ -19,9 +19,7 @@ if (command === 'add') {
   const noteList = notes.getAll();
   if (noteList) {
     console.log(`${noteList.length} note${(noteList.length > 1) ? 's' : ''} successfully read!`);
-    noteList.forEach((note) => {
-      notes.logNote(note);
-    });
+    noteList.forEach(note => notes.logNote(note));
   } else {
     console.log('Notes not found!');
   }
