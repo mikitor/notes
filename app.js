@@ -20,8 +20,6 @@ const argv = yargs
   .help()
   .argv;
 const command = argv._[0];
-console.log(`Command: ${command}`);
-console.log('Yargs: ', argv);
 
 if (command === 'add') {
   const note = notes.addNote(argv.title, argv.body);
